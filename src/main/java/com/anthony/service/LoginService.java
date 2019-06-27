@@ -35,16 +35,20 @@ public class LoginService {
 
 
 	public boolean userExists(final String username, final String password) {
-		try {
+			if (jdbcTemplate != null) {
+				LOGGER.info("NOY NULL");
+			}
+			
+			try {
+
 			final int i = this.jdbcTemplate.queryForInt(
 					"select count(*) from int_user where username = " + username + " and password = " + password);
-			if (i != 0) {
-				return true;
-			}
+			
+			return (i != 0 ? true : false); 	
 		} catch (final Exception e) {
+			
 			LoginService.LOGGER.error(e);
 		}
-
 		return false;
 	}
 

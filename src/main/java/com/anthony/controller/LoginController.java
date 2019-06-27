@@ -49,7 +49,7 @@ public class LoginController {
 
 
 	@PostMapping("/login")
-	public ModelAndView displayLogin(@RequestParam final String username, @RequestParam final String password) {
+	public ModelAndView displayLogin(@RequestParam String username, @RequestParam String password) {
 		final ModelAndView modelAndViewSuccess = new ModelAndView("home");
 		modelAndViewSuccess.addObject("message", "Hello");
 
@@ -63,7 +63,6 @@ public class LoginController {
 			}
 		}
 
-		LoginController.LOGGER.info("failure");
 		return modelAndView;
 	}
 
