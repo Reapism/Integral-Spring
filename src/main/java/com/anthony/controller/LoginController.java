@@ -58,7 +58,7 @@ public class LoginController {
 
 		if (username != null && password != null) {
 			if (this.loginService.userExists(username, password)) {
-				LoginController.LOGGER.info("success");
+				LoginController.LOGGER.info(username +  " exists!");
 				return modelAndViewSuccess;
 			}
 		}

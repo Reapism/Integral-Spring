@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-Integral Portal
+<h1><strong>Login Portal - <span style="color: #ff9900;">Integral</span> Banking</strong></h1>
+<hr />
+<h3>Please login with your credentials</h3>
 <form method="post" action="login">
-	LOGIN:<input type="text" name="username"/><br/>
-	PASSWORD:<input type="password" name="password"/><br/>
-	<input type="submit" value="login"/>
+	Username: <input type="text" name="username"/><br/>
+	Password: <input type="password" name="password"/><br/>
+	<input type="submit" value="Login"/>
 </form>
 
 </body>
