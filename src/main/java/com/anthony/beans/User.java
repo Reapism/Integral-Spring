@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class User {
 
-	private Date birthDate;
+	private String birthDate;
 	private String email;
 	private String firstName;
 	private String lastName;
@@ -47,7 +47,7 @@ public class User {
 	/**
 	 * @return the birthDate
 	 */
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return this.birthDate;
 	}
 
@@ -89,7 +89,7 @@ public class User {
 	/**
 	 * @param birthDate the birthDate to set
 	 */
-	public void setBirthDate(final Date birthDate) {
+	public void setBirthDate(final String birthDate) {
 		this.birthDate = birthDate;
 	}
 
