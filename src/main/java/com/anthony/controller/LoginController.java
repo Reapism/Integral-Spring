@@ -7,6 +7,7 @@ package com.anthony.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,10 +30,11 @@ public class LoginController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
-	private final LoginService loginService;
-
+	@Autowired
+	private LoginService loginService;
+	
 	public LoginController() {
-		this.loginService = new LoginService();
+		
 	}
 
 	/*
@@ -56,8 +58,12 @@ public class LoginController {
 		final ModelAndView modelAndView = new ModelAndView("login");
 		modelAndView.addObject("message", "Hello");
 
+		LOGGER.info( (loginService == null ? "Null" : "not null"));
+		
+		LOGGER.info((loginService.check() ? "is true" : "yolo" ));
+		
 		if (username != null && password != null) {
-			if (this.loginService.userExists(username, password)) {
+			if (this.loginService.authenticateLogin(username.toLowerCase(), password)) {
 				LoginController.LOGGER.info(username +  " exists!");
 				return modelAndViewSuccess;
 			}
