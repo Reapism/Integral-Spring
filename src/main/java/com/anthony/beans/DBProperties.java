@@ -20,7 +20,7 @@ public class DBProperties {
 	public DBProperties() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Bean
 	public DataSource dataSource() {
 		final DriverManagerDataSource dataSource = new DriverManagerDataSource();
