@@ -46,7 +46,7 @@ public class UserService {
 					"INSERT INTO int_user (" + "username," + "pass_hash," + "email," + "user_role," + "first_name,"
 							+ "last_name," + "birth_date," + "phone" + ") VALUES (" + "'{0}'," + "'{1}'," + "'{2}'," + "'{3}',"
 							+ "'{4}'," + "'{5}'," + "'{6}'," + "'{7}'," + ");",
-					user.getUsername(), password, user.getEmail(), user.getUser_role(), user.getFirstName(),
+					user.getUsername(), password, user.getEmail(), user.getUserRole(), user.getFirstName(),
 					user.getLastName(), user.getBirthDate(), user.getPhone()));
 
 			return i != 0 ? true : false;
@@ -60,9 +60,13 @@ public class UserService {
 
 	public boolean deleteUser(final String username, final String password) {
 
+		
+		
 	}
 
 	public char getUserRole(final String username) {
 
+		
+		
 	}
 }

@@ -12,13 +12,13 @@
 <h3>Please enter all the information below!</h3>
 
 <form method="post" action="createaccount">
-	First name:  <input type="text" name="firstname"/><br/>
-	Last name:  <input type="text" name="lastname"/><br/>
+	First name:  <input type="text" name="firstName"/><br/>
+	Last name:  <input type="text" name="lastName"/><br/>
 	Username: <input type="text" name="username"/><br/>
 	Password:  <input type="password" name="password"/><br/>
 	Password:  <input type="password" name="password2"/><br/>
-	Email:  <input type="text" name="password2"/><br/>
-	Birth date:  <input type="text" name="birthdate"/><br/>
+	Email:  <input type="text" name="email"/><br/>
+	Birth date:  <input type="text" name="birthDate"/><br/>
 	Phone:  <input type="text" name="phone"/><br/>
 	<input type="submit" value="Create Account"/>
 </form>

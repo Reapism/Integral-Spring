@@ -27,9 +27,33 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String phone;
-	private char user_role;
+	private char userRole;
 	private String username;
 
+	/**
+	 * Instantiates a null user.
+	 */
+	public User() {
+		this("null","null","null","null","null","null",'C');
+	}
+	
+	/**
+	 * Parameterized constructor.
+	 * Creates a user with all of its attributes initialized.
+	 * <p><b>Note:</b> Password is not part of the user object, its 
+	 * only stored in the DB for security.
+	 * </p>
+	 */
+	public User(String firstName, String lastName, String username, String email, String birthDate, String phone, char userRole) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.email = email;
+		this.birthDate = birthDate;
+		this.phone = phone;
+		this.userRole = userRole;
+	}
+	
 	/**
 	 * @return the username.
 	 */
@@ -82,8 +106,8 @@ public class User {
 	/**
 	 * @return the user_role.
 	 */
-	public char getUser_role() {
-		return this.user_role;
+	public char getUserRole() {
+		return this.userRole;
 	}
 
 	/**
@@ -124,8 +148,8 @@ public class User {
 	/**
 	 * @param user_role the user_role to set.
 	 */
-	public void setUser_role(final char user_role) {
-		this.user_role = user_role;
+	public void setUserRole(final char userRole) {
+		this.userRole = userRole;
 	}
 
 	@Override
