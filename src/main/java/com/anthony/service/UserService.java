@@ -5,8 +5,7 @@
  */
 package com.anthony.service;
 
-import java.text.MessageFormat;
-
+import org.apache.jasper.tagplugins.jstl.core.If;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -34,25 +33,25 @@ public class UserService {
 	/**
 	 * Creates a user based on the User object and a password.
 	 * <p>
-	 * <b>Note:</b> Password is a separate parameter because 
-	 * you should never store a password in any object.
+	 * <b>Note:</b> Password is a separate parameter because you should never store
+	 * a password in any object.
 	 * </p>
-	 * @return		The return.
-	 * @see         If needed.
+	 * 
+	 * @return The return.
+	 * @see If needed.
 	 */
 	public boolean createUser(final User user, final String password) {
 		try {
-			final Integer i = this.jdbcTemplate.update(MessageFormat.format(
-					"INSERT INTO int_user (" + "username," + "pass_hash," + "email," + "user_role," + "first_name,"
-							+ "last_name," + "birth_date," + "phone" + ") VALUES (" + "'{0}'," + "'{1}'," + "'{2}'," + "'{3}',"
-							+ "'{4}'," + "'{5}'," + "'{6}'," + "'{7}'," + ");",
-					user.getUsername(), password, user.getEmail(), user.getUserRole(), user.getFirstName(),
-					user.getLastName(), user.getBirthDate(), user.getPhone()));
+			final Integer i = this.jdbcTemplate.update("INSERT INTO int_user (" + "username, " + "pass_hash, " + "email, "
+					+ "user_role, " + "first_name, " + "last_name, " + "birth_date, " + "phone" + ") VALUES (" + "'"
+					+ user.getUsername() + "'," + "'" + password + "'," + "'" + user.getEmail() + "'," + "'"
+					+ user.getUserRole() + "'," + "'" + user.getFirstName() + "'," + "'" + user.getLastName() + "'," + "'"
+					+ user.getBirthDate() + "'," + "'" + user.getPhone() + "');");
 
 			return i != 0 ? true : false;
-			
+
 		} catch (final Exception e) {
-			
+
 			UserService.LOGGER.error(e);
 			return false;
 		}
@@ -60,13 +59,11 @@ public class UserService {
 
 	public boolean deleteUser(final String username, final String password) {
 
-		
-		
+
 	}
 
 	public char getUserRole(final String username) {
 
-		
-		
+
 	}
 }

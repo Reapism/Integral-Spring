@@ -57,10 +57,6 @@ public class LoginController {
 
 		final ModelAndView modelAndView = new ModelAndView("login");
 		modelAndView.addObject("message", "Hello");
-
-		LOGGER.info( (loginService == null ? "Null" : "not null"));
-		
-		LOGGER.info((loginService.check() ? "is true" : "yolo" ));
 		
 		if (username != null && password != null) {
 			if (this.loginService.authenticateLogin(username.toLowerCase(), password)) {

@@ -30,7 +30,7 @@ public class LoginService {
 	private JdbcTemplate jdbcTemplate;
 
 	public boolean authenticateLogin(final String username, final String password) {
-		LoginService.LOGGER.info(jdbcTemplate != null ? "JDBC TEMPLATE NOT NULL" : "JDBC TEMPLATE NULL");
+		LoginService.LOGGER.debug(jdbcTemplate != null ? "JDBC TEMPLATE NOT NULL" : "JDBC TEMPLATE NULL");
 
 		try {
 			final Integer i = this.jdbcTemplate.queryForObject(

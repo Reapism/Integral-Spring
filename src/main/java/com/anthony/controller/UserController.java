@@ -66,17 +66,17 @@ public class UserController {
 	 * @see If needed.
 	 */
 	@PostMapping("/createaccount")
-	public ModelAndView displayLogin(@RequestParam final String firstName, @RequestParam final String lastName,
-			@RequestParam final String username, @RequestParam final String password, @RequestParam final String password2,
-			@RequestParam final String email, @RequestParam final String birthDate, @RequestParam final String phone) {
+	public ModelAndView displayLogin(@RequestParam String firstName, @RequestParam String lastName,
+			@RequestParam String username, @RequestParam final String password, @RequestParam final String password2,
+			@RequestParam String email, @RequestParam final String birthDate, @RequestParam final String phone) {
 		
 		final ModelAndView modelAndView = new ModelAndView("createaccount");
 		final ModelAndView modelAndViewSuccess = new ModelAndView("login");
 		modelAndView.addObject("createaccount", "Hello");
 		modelAndViewSuccess.addObject("login", "Hello");
 
-		final User user = getUser(firstName, lastName, username, email, birthDate, phone);
-
+		final User user = getUser(firstName.toLowerCase(), lastName.toLowerCase(), username.toLowerCase(), email.toLowerCase(), birthDate, phone);	
+		
 		if (user == null) {		
 			
 			modelAndView.addObject("createaccount", "Hello");
@@ -95,6 +95,7 @@ public class UserController {
 			}
 		} else {
 			modelAndView.addObject("failure", "passwords are not valid!");
+			LOGGER.error("Passwords do not match!");
 			return modelAndView;
 		}
 		
@@ -114,10 +115,12 @@ public class UserController {
 			final String birthDate, final String phone) {
 
 		final User user = new User(firstName, lastName, username, email, birthDate, phone, 'C');
-		if (isValidUser(user)) {
-			return user;
-		}
-		return null;
+		
+		return user;
+//		if (isValidUser(user)) {
+//			return user;
+//		}
+//		return null;
 	}
 
 	public boolean isValidBirthDate(final String birthDate) {
